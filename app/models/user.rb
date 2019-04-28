@@ -4,6 +4,8 @@ class User < ApplicationRecord
     password: 8
   }.freeze
 
+  PASSWORD_REGEX = /\A[a-zA-Z0-9]*\z/.freeze
+
   has_secure_password
 
   validates :username, :password, :password_confirmation, presence: true
@@ -13,5 +15,6 @@ class User < ApplicationRecord
             length: { minimum: LENGTH[:username].min, maximum: LENGTH[:username].max}
 
   validates :password,
-            length: { is: LENGTH[:password] }
+            length: { is: LENGTH[:password] },
+            format: { with: PASSWORD_REGEX, message: I18n.t('errors.user.password.format') }
 end
