@@ -1,9 +1,8 @@
 class Api::V1::AuthenticationController < ApplicationController
-  before_action :get_user
-
   def create
-    if authenticate_user
-      render json: {token: Authentication::JwtService.new(@user).encode}, status: :ok
+    user = User.find_by(username: params[:username])
+    if authenticate(user)
+      render json: {token: Authentication::JwtService.new.encode(user)}, status: :ok
     else
       render status: :unauthorized
     end
@@ -11,11 +10,7 @@ class Api::V1::AuthenticationController < ApplicationController
 
   private
 
-  def get_user
-    @user = User.find_by(username: params[:username])
-  end
-
-  def authenticate_user
-    @user&.authenticate(params[:password])
+  def authenticate(user)
+    user&.authenticate(params[:password])
   end
 end

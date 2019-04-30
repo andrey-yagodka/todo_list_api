@@ -1,19 +1,19 @@
 class Authentication::JwtService
   SECRET_KEY = Rails.application.secrets.secret_key_base
 
-  def initialize(user)
-    @user = user
+  def encode(user)
+    JWT.encode(token_data(user), SECRET_KEY)
   end
 
-  def encode
-    JWT.encode(token_data, SECRET_KEY)
+  def decode(token)
+    HashWithIndifferentAccess.new JWT.decode(token, SECRET_KEY)[0]
   end
 
   private
 
-  def token_data
+  def token_data(user)
     {
-      user_id: @user.id,
+      user_id: user.id,
       exp: expiration_time
     }
   end
