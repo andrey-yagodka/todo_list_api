@@ -1,17 +1,17 @@
 module Docs
   module V1
-    module Users
+    module Authentication
       extend Dox::DSL::Syntax
 
       document :api do
-        resource 'Users' do
-          endpoint '/users'
-          group 'Users'
+        resource 'Authentication' do
+          endpoint '/auth'
+          group 'Authentication'
         end
       end
 
       document :create do
-        action 'Sign up'
+        action 'Sign In'
       end
     end
   end
