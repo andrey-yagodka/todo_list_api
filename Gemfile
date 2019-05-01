@@ -17,6 +17,7 @@ gem 'pundit'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
+gem 'jbuilder'
 gem 'jwt'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -45,6 +46,8 @@ group :test do
   gem 'simplecov'
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
+  gem 'json_matchers'
+  gem 'pundit-matchers'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

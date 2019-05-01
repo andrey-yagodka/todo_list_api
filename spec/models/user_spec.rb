@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject(:user) { FactoryBot.build(:user, password: nil) }
+  let(:user) { build(:user, password: nil) }
   let(:username_length) { User::LENGTH[:username] }
   let(:password_length) { User::LENGTH[:password] }
 
@@ -24,8 +24,8 @@ RSpec.describe User, type: :model do
       it { is_expected.to validate_length_of(:password).is_equal_to(password_length) }
     end
 
-    it { expect(subject).to validate_uniqueness_of(:username) }
-    it { expect(subject).to validate_confirmation_of(:password) }
+    it { expect(user).to validate_uniqueness_of(:username) }
+    it { expect(user).to validate_confirmation_of(:password) }
   end
 
   context 'invalid values' do
@@ -34,7 +34,7 @@ RSpec.describe User, type: :model do
 
     it { expect(user).not_to allow_value('a' * (username_length.min - 1)).for(:username) }
     it { expect(user).not_to allow_value('a' * (username_length.max + 1)).for(:username) }
-    it { expect(subject).not_to allow_value(nil).for(:username) }
+    it { expect(user).not_to allow_value(nil).for(:username) }
     it { expect(user).not_to allow_value('a' * (password_length - 1)).for(:password) }
     it { expect(user).not_to allow_value('a' * (password_length + 1)).for(:password) }
 

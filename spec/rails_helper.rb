@@ -8,6 +8,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 
 require 'rspec/rails'
 require 'database_cleaner'
+require 'pundit/matchers'
 
 Dir[File.dirname(__FILE__) + '/support/*.rb'].each { |file| require file }
 
