@@ -12,7 +12,8 @@ class Api::V1::TasksController < ApplicationController
   end
 
   def update
-    Tasks::UpdatePositionService.new(@task, task_position_param)
+    Tasks::UpdatePositionService.new(@task, task_position_param).call if task_position_param
+
     if @task.update(task_params)
       render :show, status: :ok
     else

@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "number" },
+    "name": { "type": "string" },
+    "deadline": { "type": ["null", "string"] },
+    "position": { "type": "number" },
+    "is_done": { "type": "boolean" },
+    "project_id" : { "type": "number" },
+    "created_at": { "type": "string" },
+    "updated_at": { "type": "string" },
+    "url": { "type": "string" }
+  },
+  "required": ["name", "id"]
+}
