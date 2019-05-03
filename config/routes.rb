@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       post 'sign_in', controller: :authentication, action: :create
 
       resources :projects, only: [:create, :update, :destroy]
+      resources :tasks, only: [:create, :update, :destroy]
     end
   end
 end

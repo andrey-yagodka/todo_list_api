@@ -1,10 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe LoadResourceService do
-  subject(:load_resource_service) { described_class.new(user, params, controller_name) }
+  subject(:load_resource_service) { described_class.new(params, controller_name) }
 
-  let(:user) { create(:user) }
-  let(:project) { create(:project, user: user) }
+  let(:project) { create(:project) }
   let(:params) { { id: project.id } }
   let(:controller_name) { 'projects' }
 

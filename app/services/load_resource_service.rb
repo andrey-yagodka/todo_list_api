@@ -1,11 +1,10 @@
 class LoadResourceService
-  def initialize(user, params, controller_name)
-    @user = user
+  def initialize(params, controller_name)
     @params = params
-    @controller_name = controller_name
+    @entity = controller_name.classify.constantize
   end
 
   def call
-    @user.public_send(@controller_name).find_by(id: @params[:id])
+    @entity.find_by(id: @params[:id])
   end
 end
