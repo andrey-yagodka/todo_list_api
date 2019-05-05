@@ -6,7 +6,7 @@ class Comment < ApplicationRecord
 
   FORMATS = [
     'image/png',
-    'image/jpg'
+    'image/jpeg'
   ].freeze
 
   belongs_to :task

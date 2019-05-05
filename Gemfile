@@ -5,6 +5,7 @@ ruby '2.5.1'
 
 gem 'acts_as_list'
 gem 'active_storage_validations'
+gem "aws-sdk-s3", require: false
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use postgresql as the database for Active Record
