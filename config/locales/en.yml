@@ -3,5 +3,9 @@ en:
     user:
       password:
         format: Password should be alphanumeric
+    comment:
+      file:
+        format: Wrong file format. You can upload %{formats} only
+        size: An uploaded file is too large. The size shouldn’t exceed %{size} MB.
     pundit:
       access_denied: Access denied

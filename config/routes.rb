@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
       resources :projects, only: [:create, :update, :destroy]
       resources :tasks, only: [:create, :update, :destroy]
+      resources :comments, only: [:create, :destroy]
     end
   end
 end
