@@ -1,5 +1,5 @@
 require 'rails_helper'
-require 'pry'
+
 RSpec.describe 'V1::Tasks', type: :request do
   include Docs::V1::Tasks::Api
 
@@ -10,7 +10,7 @@ RSpec.describe 'V1::Tasks', type: :request do
   let(:params) { { task: attributes_for(:task).merge(project_id: project.id) } }
   let(:headers) { { authorization: token, accept: 'application/json' } }
 
-  describe 'POST /api/v1/projects' do
+  describe 'POST /api/v1/tasks' do
     include Docs::V1::Tasks::Create
 
     it 'creates a new task', :dox do
@@ -20,8 +20,8 @@ RSpec.describe 'V1::Tasks', type: :request do
     end
   end
 
-  describe 'PUT /api/v1/projects/:id' do
-    include Docs::V1::Projects::Update
+  describe 'PUT /api/v1/tasks/:id' do
+    include Docs::V1::Tasks::Update
 
     it 'updates project', :dox do
       put api_v1_task_path(id: task.id), headers: headers, params: params
@@ -30,8 +30,8 @@ RSpec.describe 'V1::Tasks', type: :request do
     end
   end
 
-  describe 'DELETE /api/v1/projects/:id' do
-    include Docs::V1::Projects::Destroy
+  describe 'DELETE /api/v1/tasks/:id' do
+    include Docs::V1::Tasks::Destroy
 
     it 'deletes project', :dox do
       delete api_v1_task_path(id: task.id), headers: headers

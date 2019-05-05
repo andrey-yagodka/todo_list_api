@@ -19,7 +19,7 @@
 
     + Body
 
-            username=holley&password=827wPz6b
+            username=franklin.hilll&password=VoSv18V8
 
 + Response 200
 
@@ -30,8 +30,76 @@
     + Body
 
             {
-              "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NTY5OTM4Njd9.HGKy85ugCpjqQVzc2A0VmjHeRqc_RMJ3i2yapGdW1Uw"
+              "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NTcxNTgxNjl9.W7KYuav-msouw5xKvpLKbcqZrOUlrSgm6YCk_OpxGm0"
             }
+
+# Group Comments
+
+
+## Comments [/comments]
+
+
+### Create a comment [POST /api/v1/comments]
+
+
++ Request creates a comment
+**POST**&nbsp;&nbsp;`/api/v1/comments`
+
+    + Headers
+
+            Accept: application/json
+            Content-Type: application/x-www-form-urlencoded
+
+    + Body
+
+            comment[body]=Consequatur+id+quis+at.&comment[task_id]=1
+
++ Response 201
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "id": 1,
+              "body": "Consequatur id quis at.",
+              "file": {
+                "name": "file",
+                "record": {
+                  "id": 1,
+                  "body": "Consequatur id quis at.",
+                  "task_id": 1,
+                  "created_at": "2019-05-05T15:56:09.345Z",
+                  "updated_at": "2019-05-05T15:56:09.345Z"
+                },
+                "dependent": "purge_later"
+              },
+              "task_id": 1,
+              "created_at": "2019-05-05T15:56:09.345Z",
+              "updated_at": "2019-05-05T15:56:09.345Z",
+              "url": "http://www.example.com/api/v1/projects/1"
+            }
+
+### Delete a comment [DELETE /api/v1/comments/{id}]
+
++ Parameters
+    + id: `2` (number, required)
+
++ Request deletes a comment
+**DELETE**&nbsp;&nbsp;`/api/v1/comments/2`
+
+    + Headers
+
+            Accept: application/json
+            Content-Type: application/x-www-form-urlencoded
+
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json
 
 # Group Projects
 
@@ -52,7 +120,7 @@
 
     + Body
 
-            project[name]=repellat
+            project[name]=excepturi
 
 + Response 201
 
@@ -63,21 +131,21 @@
     + Body
 
             {
-              "id": 1,
-              "name": "repellat",
-              "user_id": 2,
-              "created_at": "2019-05-03T18:17:47.754Z",
-              "updated_at": "2019-05-03T18:17:47.754Z",
-              "url": "http://www.example.com/api/v1/projects/1"
+              "id": 3,
+              "name": "excepturi",
+              "user_id": 4,
+              "created_at": "2019-05-05T15:56:09.409Z",
+              "updated_at": "2019-05-05T15:56:09.409Z",
+              "url": "http://www.example.com/api/v1/projects/3"
             }
 
 ### Update a project [PUT /api/v1/projects/{id}]
 
 + Parameters
-    + id: `2` (number, required)
+    + id: `4` (number, required)
 
 + Request updates project
-**PUT**&nbsp;&nbsp;`/api/v1/projects/2`
+**PUT**&nbsp;&nbsp;`/api/v1/projects/4`
 
     + Headers
 
@@ -86,7 +154,7 @@
 
     + Body
 
-            project[name]=recusandae
+            project[name]=eos
 
 + Response 200
 
@@ -97,21 +165,21 @@
     + Body
 
             {
-              "id": 2,
-              "name": "recusandae",
-              "user_id": 3,
-              "created_at": "2019-05-03T18:17:47.775Z",
-              "updated_at": "2019-05-03T18:17:47.782Z",
-              "url": "http://www.example.com/api/v1/projects/2"
+              "id": 4,
+              "name": "eos",
+              "user_id": 5,
+              "created_at": "2019-05-05T15:56:09.440Z",
+              "updated_at": "2019-05-05T15:56:09.449Z",
+              "url": "http://www.example.com/api/v1/projects/4"
             }
 
 ### Delete a project [DELETE /api/v1/projects/{id}]
 
 + Parameters
-    + id: `3` (number, required)
+    + id: `5` (number, required)
 
 + Request deletes project
-**DELETE**&nbsp;&nbsp;`/api/v1/projects/3`
+**DELETE**&nbsp;&nbsp;`/api/v1/projects/5`
 
     + Headers
 
@@ -143,7 +211,7 @@
 
     + Body
 
-            task[name]=quisquam&task[deadline]=2019-05-10+21%3A17%3A47+%2B0300&task[project_id]=4
+            task[name]=sunt&task[deadline]=2019-05-12+18%3A56%3A09+%2B0300&task[project_id]=6
 
 + Response 201
 
@@ -154,24 +222,24 @@
     + Body
 
             {
-              "id": 1,
-              "name": "quisquam",
-              "deadline": "2019-05-10T18:17:47.000Z",
+              "id": 3,
+              "name": "sunt",
+              "deadline": "2019-05-12T15:56:09.000Z",
               "position": 1,
               "is_done": false,
-              "project_id": 4,
-              "created_at": "2019-05-03T18:17:47.838Z",
-              "updated_at": "2019-05-03T18:17:47.838Z",
-              "url": "http://www.example.com/api/v1/tasks/1"
+              "project_id": 6,
+              "created_at": "2019-05-05T15:56:09.510Z",
+              "updated_at": "2019-05-05T15:56:09.510Z",
+              "url": "http://www.example.com/api/v1/tasks/3"
             }
 
-### Update a project [PUT /api/v1/tasks/{id}]
+### Update a task [PUT /api/v1/tasks/{id}]
 
 + Parameters
-    + id: `2` (number, required)
+    + id: `4` (number, required)
 
 + Request updates project
-**PUT**&nbsp;&nbsp;`/api/v1/tasks/2`
+**PUT**&nbsp;&nbsp;`/api/v1/tasks/4`
 
     + Headers
 
@@ -180,7 +248,7 @@
 
     + Body
 
-            task[name]=nihil&task[deadline]=2019-05-10+21%3A17%3A47+%2B0300&task[project_id]=5
+            task[name]=et&task[deadline]=2019-05-12+18%3A56%3A09+%2B0300&task[project_id]=7
 
 + Response 200
 
@@ -191,24 +259,24 @@
     + Body
 
             {
-              "id": 2,
-              "name": "nihil",
-              "deadline": "2019-05-10T18:17:47.000Z",
+              "id": 4,
+              "name": "et",
+              "deadline": "2019-05-12T15:56:09.000Z",
               "position": 1,
               "is_done": false,
-              "project_id": 5,
-              "created_at": "2019-05-03T18:17:47.858Z",
-              "updated_at": "2019-05-03T18:17:47.871Z",
-              "url": "http://www.example.com/api/v1/tasks/2"
+              "project_id": 7,
+              "created_at": "2019-05-05T15:56:09.558Z",
+              "updated_at": "2019-05-05T15:56:09.570Z",
+              "url": "http://www.example.com/api/v1/tasks/4"
             }
 
-### Delete a project [DELETE /api/v1/tasks/{id}]
+### Delete a task [DELETE /api/v1/tasks/{id}]
 
 + Parameters
-    + id: `3` (number, required)
+    + id: `5` (number, required)
 
 + Request deletes project
-**DELETE**&nbsp;&nbsp;`/api/v1/tasks/3`
+**DELETE**&nbsp;&nbsp;`/api/v1/tasks/5`
 
     + Headers
 
@@ -240,7 +308,7 @@
 
     + Body
 
-            username=jacquelynn&password=827wPz6b&password_confirmation=827wPz6b
+            username=lise_marks&password=VoSv18V8&password_confirmation=VoSv18V8
 
 + Response 201
 
@@ -251,9 +319,9 @@
     + Body
 
             {
-              "id": 8,
-              "username": "jacquelynn",
-              "password_digest": "$2a$04$7CY8ys5DSGeaAA3eMo9ORu5Z6sV3wiX2EiI/KRF7gG7T7Zt2gbOru",
-              "created_at": "2019-05-03T18:17:47.916Z",
-              "updated_at": "2019-05-03T18:17:47.916Z"
+              "id": 10,
+              "username": "lise_marks",
+              "password_digest": "$2a$04$MYtMXmnR02UJgsSQ4y4QeOqkyEzV3t31D6CHg5IxVyldqdgB7XEia",
+              "created_at": "2019-05-05T15:56:09.618Z",
+              "updated_at": "2019-05-05T15:56:09.618Z"
             }
