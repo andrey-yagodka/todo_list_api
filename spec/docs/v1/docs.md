@@ -19,7 +19,7 @@
 
     + Body
 
-            username=franklin.hilll&password=VoSv18V8
+            username=denny&password=Qt2wM6Uu
 
 + Response 200
 
@@ -30,7 +30,7 @@
     + Body
 
             {
-              "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NTcxNTgxNjl9.W7KYuav-msouw5xKvpLKbcqZrOUlrSgm6YCk_OpxGm0"
+              "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NTcyNzA2MTR9.k9zwU1qqnU3mXR_SV54onL7fCjoPO8Vi4-MTzBgUo2g"
             }
 
 # Group Comments
@@ -52,7 +52,7 @@
 
     + Body
 
-            comment[body]=Consequatur+id+quis+at.&comment[task_id]=1
+            comment[body]=Unde+est+dolor+mollitia.&comment[task_id]=1
 
 + Response 201
 
@@ -63,23 +63,32 @@
     + Body
 
             {
-              "id": 1,
-              "body": "Consequatur id quis at.",
-              "file": {
-                "name": "file",
-                "record": {
-                  "id": 1,
-                  "body": "Consequatur id quis at.",
-                  "task_id": 1,
-                  "created_at": "2019-05-05T15:56:09.345Z",
-                  "updated_at": "2019-05-05T15:56:09.345Z"
+              "data": {
+                "id": "1",
+                "type": "comment",
+                "attributes": {
+                  "body": "Unde est dolor mollitia.",
+                  "file": {
+                    "name": "file",
+                    "record": {
+                      "id": 1,
+                      "body": "Unde est dolor mollitia.",
+                      "task_id": 1,
+                      "created_at": "2019-05-06T23:10:14.764Z",
+                      "updated_at": "2019-05-06T23:10:14.764Z"
+                    },
+                    "dependent": "purge_later"
+                  }
                 },
-                "dependent": "purge_later"
-              },
-              "task_id": 1,
-              "created_at": "2019-05-05T15:56:09.345Z",
-              "updated_at": "2019-05-05T15:56:09.345Z",
-              "url": "http://www.example.com/api/v1/projects/1"
+                "relationships": {
+                  "task": {
+                    "data": {
+                      "id": "1",
+                      "type": "task"
+                    }
+                  }
+                }
+              }
             }
 
 ### Delete a comment [DELETE /api/v1/comments/{id}]
@@ -120,7 +129,7 @@
 
     + Body
 
-            project[name]=excepturi
+            project[name]=sint
 
 + Response 201
 
@@ -131,12 +140,26 @@
     + Body
 
             {
-              "id": 3,
-              "name": "excepturi",
-              "user_id": 4,
-              "created_at": "2019-05-05T15:56:09.409Z",
-              "updated_at": "2019-05-05T15:56:09.409Z",
-              "url": "http://www.example.com/api/v1/projects/3"
+              "data": {
+                "id": "3",
+                "type": "project",
+                "attributes": {
+                  "name": "sint"
+                },
+                "relationships": {
+                  "user": {
+                    "data": {
+                      "id": "4",
+                      "type": "user"
+                    }
+                  },
+                  "tasks": {
+                    "data": [
+            
+                    ]
+                  }
+                }
+              }
             }
 
 ### Update a project [PUT /api/v1/projects/{id}]
@@ -154,7 +177,7 @@
 
     + Body
 
-            project[name]=eos
+            project[name]=placeat
 
 + Response 200
 
@@ -165,12 +188,26 @@
     + Body
 
             {
-              "id": 4,
-              "name": "eos",
-              "user_id": 5,
-              "created_at": "2019-05-05T15:56:09.440Z",
-              "updated_at": "2019-05-05T15:56:09.449Z",
-              "url": "http://www.example.com/api/v1/projects/4"
+              "data": {
+                "id": "4",
+                "type": "project",
+                "attributes": {
+                  "name": "placeat"
+                },
+                "relationships": {
+                  "user": {
+                    "data": {
+                      "id": "5",
+                      "type": "user"
+                    }
+                  },
+                  "tasks": {
+                    "data": [
+            
+                    ]
+                  }
+                }
+              }
             }
 
 ### Delete a project [DELETE /api/v1/projects/{id}]
@@ -211,7 +248,7 @@
 
     + Body
 
-            task[name]=sunt&task[deadline]=2019-05-12+18%3A56%3A09+%2B0300&task[project_id]=6
+            task[name]=facere&task[deadline]=2019-05-14+02%3A10%3A14+%2B0300&task[project_id]=6
 
 + Response 201
 
@@ -222,15 +259,23 @@
     + Body
 
             {
-              "id": 3,
-              "name": "sunt",
-              "deadline": "2019-05-12T15:56:09.000Z",
-              "position": 1,
-              "is_done": false,
-              "project_id": 6,
-              "created_at": "2019-05-05T15:56:09.510Z",
-              "updated_at": "2019-05-05T15:56:09.510Z",
-              "url": "http://www.example.com/api/v1/tasks/3"
+              "data": {
+                "id": "3",
+                "type": "task",
+                "attributes": {
+                  "name": "facere",
+                  "deadline": "2019-05-13T23:10:14.000Z",
+                  "position": 1,
+                  "is_done": false
+                },
+                "relationships": {
+                  "comments": {
+                    "data": [
+            
+                    ]
+                  }
+                }
+              }
             }
 
 ### Update a task [PUT /api/v1/tasks/{id}]
@@ -248,7 +293,7 @@
 
     + Body
 
-            task[name]=et&task[deadline]=2019-05-12+18%3A56%3A09+%2B0300&task[project_id]=7
+            task[name]=consequatur&task[deadline]=2019-05-14+02%3A10%3A14+%2B0300&task[project_id]=7
 
 + Response 200
 
@@ -259,15 +304,23 @@
     + Body
 
             {
-              "id": 4,
-              "name": "et",
-              "deadline": "2019-05-12T15:56:09.000Z",
-              "position": 1,
-              "is_done": false,
-              "project_id": 7,
-              "created_at": "2019-05-05T15:56:09.558Z",
-              "updated_at": "2019-05-05T15:56:09.570Z",
-              "url": "http://www.example.com/api/v1/tasks/4"
+              "data": {
+                "id": "4",
+                "type": "task",
+                "attributes": {
+                  "name": "consequatur",
+                  "deadline": "2019-05-13T23:10:14.000Z",
+                  "position": 1,
+                  "is_done": false
+                },
+                "relationships": {
+                  "comments": {
+                    "data": [
+            
+                    ]
+                  }
+                }
+              }
             }
 
 ### Delete a task [DELETE /api/v1/tasks/{id}]
@@ -308,7 +361,7 @@
 
     + Body
 
-            username=lise_marks&password=VoSv18V8&password_confirmation=VoSv18V8
+            username=lavada.thompson&password=Qt2wM6Uu&password_confirmation=Qt2wM6Uu
 
 + Response 201
 
@@ -320,8 +373,8 @@
 
             {
               "id": 10,
-              "username": "lise_marks",
-              "password_digest": "$2a$04$MYtMXmnR02UJgsSQ4y4QeOqkyEzV3t31D6CHg5IxVyldqdgB7XEia",
-              "created_at": "2019-05-05T15:56:09.618Z",
-              "updated_at": "2019-05-05T15:56:09.618Z"
+              "username": "lavada.thompson",
+              "password_digest": "$2a$04$bd0bf7u/EIwuFRYbE.ManuaYqx.cRuKu5aR..ayyjI7sgLj./LGTq",
+              "created_at": "2019-05-06T23:10:14.980Z",
+              "updated_at": "2019-05-06T23:10:14.980Z"
             }
