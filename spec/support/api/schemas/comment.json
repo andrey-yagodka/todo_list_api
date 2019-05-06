@@ -1,13 +1,77 @@
 {
   "type": "object",
   "properties": {
-    "id": { "type": "number" },
-    "body": { "type": "string" },
-    "file": { "type": "object" },
-    "task_id": { "type": "number" },
-    "created_at": { "type": "string" },
-    "updated_at": { "type": "string" },
-    "url": { "type": "string" }
-  },
-  "required": ["id"]
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "attributes": {
+      "type": "object",
+      "properties": {
+        "body": {
+          "type": "string"
+        },
+        "file": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "null"
+            },
+            "thumb": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "null"
+                }
+              },
+              "required": [
+                "url"
+              ]
+            }
+          },
+          "required": [
+            "url",
+            "thumb"
+          ]
+        }
+      },
+      "required": [
+        "body",
+        "file"
+      ]
+    },
+    "relationships": {
+      "type": "object",
+      "properties": {
+        "task": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "type"
+              ]
+            }
+          },
+          "required": [
+            "data"
+          ]
+        }
+      },
+      "required": [
+        "task"
+      ]
+    }
+  }
 }

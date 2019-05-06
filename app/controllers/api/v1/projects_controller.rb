@@ -5,7 +5,7 @@ class Api::V1::ProjectsController < ApplicationController
     @project = current_user.projects.new(project_params)
     authorize @project
     if @project.save
-      render :show, status: :created
+      render json: ProjectSerializer.new(@project).serialized_json, status: :created
     else
       render json: @project.errors, status: :unprocessable_entity
     end
@@ -13,7 +13,7 @@ class Api::V1::ProjectsController < ApplicationController
 
   def update
     if @project.update(project_params)
-      render :show, status: :ok
+      render json: ProjectSerializer.new(@project).serialized_json, status: :ok
     else
       render json: @project.errors, status: :unprocessable_entity
     end

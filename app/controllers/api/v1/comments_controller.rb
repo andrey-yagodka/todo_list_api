@@ -5,7 +5,7 @@ class Api::V1::CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     authorize @comment
     if @comment.save
-      render :show, status: :created
+      render json: CommentSerializer.new(@comment).serialized_json, status: :created
     else
       render json: @comment.errors, status: :unprocessable_entity
     end

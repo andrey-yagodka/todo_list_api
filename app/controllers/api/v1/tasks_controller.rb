@@ -5,7 +5,7 @@ class Api::V1::TasksController < ApplicationController
     @task = Task.new(task_params)
     authorize @task
     if @task.save
-      render :show, status: :created
+      render json: TaskSerializer.new(@task).serialized_json, status: :created
     else
       render json: @task.errors, status: :unprocessable_entity
     end
@@ -15,7 +15,7 @@ class Api::V1::TasksController < ApplicationController
     Tasks::UpdatePositionService.new(@task, task_position_param).call if task_position_param
 
     if @task.update(task_params)
-      render :show, status: :ok
+      render json: TaskSerializer.new(@task).serialized_json, status: :ok
     else
       render json: @task.errors, status: :unprocessable_entity
     end
