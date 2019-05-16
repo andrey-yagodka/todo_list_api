@@ -19,8 +19,8 @@ class Comment < ApplicationRecord
 
   validates :file,
             content_type: {
-               in: FORMATS,
-               message: I18n.t('errors.comment.file.format', formats: FORMATS.join(', '))
+              in: FORMATS,
+              message: I18n.t('errors.comment.file.format', formats: FORMATS.join(', '))
             },
             size: {
               less_than: SIZE[:file].megabytes,

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  AUTHORIZATION_HEADER = 'Authorization'
+  AUTHORIZATION_HEADER = 'Authorization'.freeze
 
   include Pundit
   include ExceptionsHandler

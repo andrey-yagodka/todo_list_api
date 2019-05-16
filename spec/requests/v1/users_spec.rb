@@ -11,7 +11,7 @@ RSpec.describe 'V1::Users', type: :request do
 
     before { post api_v1_sign_up_path, params: params }
 
-    context 'valid params' do
+    context 'when params are invalid' do
       let(:params) { valid_params }
 
       it 'signs up user', :dox do
@@ -19,15 +19,15 @@ RSpec.describe 'V1::Users', type: :request do
       end
     end
 
-    context 'invalid params' do
-      context 'username is not unique' do
+    context 'when params are valid' do
+      context 'when sername is not unique' do
         let(:user) { create(:user) }
-        let(:params) { {username: user.username, password: user.password, password_confirmation: user.password} }
+        let(:params) { { username: user.username, password: user.password, password_confirmation: user.password } }
 
         it { expect(response).to have_http_status(422) }
       end
 
-      context 'password confirmation is not present' do
+      context 'when password confirmation is not present' do
         let(:params) { valid_params.except(:password_confirmation) }
 
         it { expect(response).to have_http_status(422) }

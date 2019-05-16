@@ -28,7 +28,7 @@ RSpec.describe User, type: :model do
     it { expect(user).to validate_confirmation_of(:password) }
   end
 
-  context 'invalid values' do
+  context 'when values are invalid' do
     let(:user) { build(:user) }
     let(:special_characters) { "( )!#$%&'*;<+,-.>?@/:=[\]{|}^_`~\"" }
 

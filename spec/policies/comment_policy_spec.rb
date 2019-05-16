@@ -8,7 +8,7 @@ describe CommentPolicy do
   let(:another_comment) { create(:comment) }
   let(:actions) { [:create, :destroy] }
 
-  context 'belongs to user' do
+  context 'when belongs to user' do
     let(:user) { comment.task.project.user }
 
     it { is_expected.to permit_actions(actions) }
