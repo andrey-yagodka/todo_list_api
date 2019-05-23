@@ -7,11 +7,11 @@ class ApplicationPolicy
   end
 
   def index?
-    false
+    belongs_to_user?
   end
 
   def show?
-    false
+    belongs_to_user?
   end
 
   def create?

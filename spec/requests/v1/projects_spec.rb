@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe 'V1::Projects', type: :request do
   include Docs::V1::Projects::Api
 
@@ -14,7 +12,7 @@ RSpec.describe 'V1::Projects', type: :request do
 
     it 'creates a new project', :dox do
       expect { post api_v1_projects_path, headers: headers, params: params }.to change(Project, :count).by(1)
-      expect(response).to have_http_status(201)
+      expect(response).to have_http_status :created
       expect(response).to match_json_schema('project')
     end
   end
@@ -24,7 +22,7 @@ RSpec.describe 'V1::Projects', type: :request do
 
     it 'updates project', :dox do
       put api_v1_project_path(id: project.id), headers: headers, params: params
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status :ok
       expect(response).to match_json_schema('project')
     end
   end
@@ -34,7 +32,7 @@ RSpec.describe 'V1::Projects', type: :request do
 
     it 'deletes project', :dox do
       delete api_v1_project_path(id: project.id), headers: headers
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status :ok
     end
   end
 end

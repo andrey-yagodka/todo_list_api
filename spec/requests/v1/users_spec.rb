@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe 'V1::Users', type: :request do
   include Docs::V1::Users::Api
 
@@ -15,7 +13,8 @@ RSpec.describe 'V1::Users', type: :request do
       let(:params) { valid_params }
 
       it 'signs up user', :dox do
-        expect(response).to have_http_status(201)
+        expect(response).to have_http_status :created
+        expect(response).to match_json_schema('user')
       end
     end
 
@@ -24,13 +23,7 @@ RSpec.describe 'V1::Users', type: :request do
         let(:user) { create(:user) }
         let(:params) { { username: user.username, password: user.password, password_confirmation: user.password } }
 
-        it { expect(response).to have_http_status(422) }
-      end
-
-      context 'when password confirmation is not present' do
-        let(:params) { valid_params.except(:password_confirmation) }
-
-        it { expect(response).to have_http_status(422) }
+        it { expect(response).to have_http_status :unprocessable_entity }
       end
     end
   end

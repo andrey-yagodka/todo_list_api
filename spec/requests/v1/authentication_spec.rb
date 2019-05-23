@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe 'V1::Authentication', type: :request do
   include Docs::V1::Authentication::Api
 
@@ -12,7 +10,8 @@ RSpec.describe 'V1::Authentication', type: :request do
     before { post api_v1_sign_in_path, params: params }
 
     it 'signs in user', :dox do
-      expect(response).to have_http_status 200
+      expect(response).to have_http_status :ok
+      expect(response).to match_json_schema('authentication')
     end
   end
 end

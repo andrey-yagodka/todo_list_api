@@ -10,11 +10,11 @@ class User < ApplicationRecord
 
   has_many :projects, dependent: :destroy
 
-  validates :username, :password, :password_confirmation, presence: true
+  validates :username, :password, presence: true
 
   validates :username,
             uniqueness: true,
-            length: { minimum: LENGTH[:username].min, maximum: LENGTH[:username].max }
+            length: { in: LENGTH[:username] }
 
   validates :password,
             length: { is: LENGTH[:password] },

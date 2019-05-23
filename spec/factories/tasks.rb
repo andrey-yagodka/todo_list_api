@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :task do
-    name { Faker::Lorem.word }
-    deadline { Time.now + 1.week }
+    name { FFaker::Lorem.word }
+    deadline { rand(1..10).years.from_now }
     project
   end
 end

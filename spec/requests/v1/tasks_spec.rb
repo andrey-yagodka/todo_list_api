@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe 'V1::Tasks', type: :request do
   include Docs::V1::Tasks::Api
 
@@ -15,7 +13,7 @@ RSpec.describe 'V1::Tasks', type: :request do
 
     it 'creates a new task', :dox do
       expect { post api_v1_tasks_path, headers: headers, params: params }.to change(Task, :count).by(1)
-      expect(response).to have_http_status(201)
+      expect(response).to have_http_status :created
       expect(response).to match_json_schema('task')
     end
   end
@@ -25,7 +23,7 @@ RSpec.describe 'V1::Tasks', type: :request do
 
     it 'updates project', :dox do
       put api_v1_task_path(id: task.id), headers: headers, params: params
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status :ok
       expect(response).to match_json_schema('task')
     end
   end
@@ -35,7 +33,7 @@ RSpec.describe 'V1::Tasks', type: :request do
 
     it 'deletes project', :dox do
       delete api_v1_task_path(id: task.id), headers: headers
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status :ok
     end
   end
 end

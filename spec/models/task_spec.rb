@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Task, type: :model do
   describe 'database columns' do
     it { is_expected.to have_db_column(:name).of_type(:string).with_options(null: false) }

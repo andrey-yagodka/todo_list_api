@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :comment do
-    body { Faker::Lorem.sentence }
-    task
+    body { FFaker::Lorem.sentence }
+    task { association :task }
   end
 
   trait :attach_file do

@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe User, type: :model do
   let(:user) { build(:user, password: nil) }
   let(:username_length) { User::LENGTH[:username] }
@@ -16,7 +14,6 @@ RSpec.describe User, type: :model do
     describe 'presence' do
       it { is_expected.to validate_presence_of(:username) }
       it { is_expected.to validate_presence_of(:password) }
-      it { is_expected.to validate_presence_of(:password_confirmation) }
     end
 
     describe 'length' do

@@ -1,18 +1,22 @@
 class Api::V1::CommentsController < ApplicationController
-  before_action :load_and_authorize_resource, except: :create
-
   def create
-    @comment = Comment.new(comment_params)
-    authorize @comment
-    if @comment.save
-      render json: CommentSerializer.new(@comment).serialized_json, status: :created
+    comment = Comment.new(comment_params)
+    authorize comment
+    if comment.save
+      render json: CommentSerializer.new(comment).serialized_json, status: :created
     else
-      render json: @comment.errors, status: :unprocessable_entity
+      render json: comment.errors, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @comment.destroy ? head(:ok) : head(:unprocessable_entity)
+    comment = Comment.find_by(id: params[:id])
+    authorize comment
+    if comment.destroy
+      render json: { deleted: true }, status: :ok
+    else
+      render json: comment.errors, status: :unprocessable_entity
+    end
   end
 
   private

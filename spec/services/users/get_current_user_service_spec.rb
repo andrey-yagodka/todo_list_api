@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Users::GetCurrentUserService do
   subject(:get_current_user_service) { described_class.new(token) }
 

@@ -6,7 +6,7 @@ class Authentication::JwtService
   end
 
   def decode(token)
-    HashWithIndifferentAccess.new JWT.decode(token, SECRET_KEY)[0]
+    HashWithIndifferentAccess.new JWT.decode(token, SECRET_KEY).first
   end
 
   private

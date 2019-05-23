@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 describe TaskPolicy do
   subject(:task_policy) { described_class.new(user, task) }
 

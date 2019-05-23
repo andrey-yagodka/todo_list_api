@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 describe CommentPolicy do
   subject(:comment_policy) { described_class.new(user, comment) }
 

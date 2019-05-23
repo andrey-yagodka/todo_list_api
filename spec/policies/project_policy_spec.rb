@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 describe ProjectPolicy do
   subject(:project_policy) { described_class.new(user, project) }
 

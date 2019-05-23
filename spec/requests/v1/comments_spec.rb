@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe 'V1::Comments', type: :request do
   include Docs::V1::Comments::Api
 
@@ -15,7 +13,7 @@ RSpec.describe 'V1::Comments', type: :request do
 
     it 'creates a comment', :dox do
       expect { post api_v1_comments_path, headers: headers, params: params }.to change(Comment, :count).by(1)
-      expect(response).to have_http_status(201)
+      expect(response).to have_http_status :created
       expect(response).to match_json_schema('comment')
     end
   end
@@ -27,7 +25,7 @@ RSpec.describe 'V1::Comments', type: :request do
 
     it 'deletes a comment', :dox do
       delete api_v1_comment_path(id: comment.id), headers: headers
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status :ok
     end
   end
 end
