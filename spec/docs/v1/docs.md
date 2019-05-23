@@ -19,7 +19,7 @@
 
     + Body
 
-            username=denny&password=Qt2wM6Uu
+            username=cassaundra&password=password
 
 + Response 200
 
@@ -30,7 +30,7 @@
     + Body
 
             {
-              "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NTcyNzA2MTR9.k9zwU1qqnU3mXR_SV54onL7fCjoPO8Vi4-MTzBgUo2g"
+              "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NTg3MDUxMTZ9.j8uBy95SWoxklkCmHikhstXQKsy4yny2FD1Q4_4TD3w"
             }
 
 # Group Comments
@@ -48,11 +48,12 @@
     + Headers
 
             Accept: application/json
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1NTg3MDUxMTZ9.TNKJGUCFl37Wc65TTMQ996JfUxuIr6scqOC3H2tWvzs
             Content-Type: application/x-www-form-urlencoded
 
     + Body
 
-            comment[body]=Unde+est+dolor+mollitia.&comment[task_id]=1
+            comment[body]=Qui+soluta+nihil+quia+tempora+nihil+architecto.&comment[task]&comment[task_id]=1
 
 + Response 201
 
@@ -67,15 +68,15 @@
                 "id": "1",
                 "type": "comment",
                 "attributes": {
-                  "body": "Unde est dolor mollitia.",
+                  "body": "Qui soluta nihil quia tempora nihil architecto.",
                   "file": {
                     "name": "file",
                     "record": {
                       "id": 1,
-                      "body": "Unde est dolor mollitia.",
+                      "body": "Qui soluta nihil quia tempora nihil architecto.",
                       "task_id": 1,
-                      "created_at": "2019-05-06T23:10:14.764Z",
-                      "updated_at": "2019-05-06T23:10:14.764Z"
+                      "created_at": "2019-05-23T13:38:36.361Z",
+                      "updated_at": "2019-05-23T13:38:36.361Z"
                     },
                     "dependent": "purge_later"
                   }
@@ -102,13 +103,20 @@
     + Headers
 
             Accept: application/json
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE1NTg3MDUxMTZ9.26cNliGBJVfOn-Xc0zqZPQw-Yrw-TXMcMXjJ5S9qfTI
             Content-Type: application/x-www-form-urlencoded
 
 + Response 200
 
     + Headers
 
-            Content-Type: application/json
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "deleted": true
+            }
 
 # Group Projects
 
@@ -125,11 +133,12 @@
     + Headers
 
             Accept: application/json
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE1NTg3MDUxMTZ9.sgJ96eDEACra25pZJ4le_xstQIoimHrvcbWy5rpXK5I
             Content-Type: application/x-www-form-urlencoded
 
     + Body
 
-            project[name]=sint
+            project[name]=ipsa
 
 + Response 201
 
@@ -144,7 +153,7 @@
                 "id": "3",
                 "type": "project",
                 "attributes": {
-                  "name": "sint"
+                  "name": "ipsa"
                 },
                 "relationships": {
                   "user": {
@@ -173,11 +182,12 @@
     + Headers
 
             Accept: application/json
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1LCJleHAiOjE1NTg3MDUxMTZ9.ROygZ3i4P2QXkQsWrp4axaZG3D6bgcsDKCIMGF9Ck-Q
             Content-Type: application/x-www-form-urlencoded
 
     + Body
 
-            project[name]=placeat
+            project[name]=exercitationem
 
 + Response 200
 
@@ -192,7 +202,7 @@
                 "id": "4",
                 "type": "project",
                 "attributes": {
-                  "name": "placeat"
+                  "name": "exercitationem"
                 },
                 "relationships": {
                   "user": {
@@ -221,13 +231,20 @@
     + Headers
 
             Accept: application/json
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE1NTg3MDUxMTZ9.C6mZM9i7SPqFmRMyhbAW24Ft9N48YPZsFL2Uc-Nlxjo
             Content-Type: application/x-www-form-urlencoded
 
 + Response 200
 
     + Headers
 
-            Content-Type: application/json
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "deleted": true
+            }
 
 # Group Tasks
 
@@ -244,11 +261,12 @@
     + Headers
 
             Accept: application/json
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3LCJleHAiOjE1NTg3MDUxMTZ9.BeiQKGDfVUm_6HRidhFzEp3obKyJRyNcOQxy8jAc3VI
             Content-Type: application/x-www-form-urlencoded
 
     + Body
 
-            task[name]=facere&task[deadline]=2019-05-14+02%3A10%3A14+%2B0300&task[project_id]=6
+            task[name]=placeat&task[deadline]=2023-05-23+13%3A38%3A36+UTC&task[project_id]=6
 
 + Response 201
 
@@ -263,8 +281,8 @@
                 "id": "3",
                 "type": "task",
                 "attributes": {
-                  "name": "facere",
-                  "deadline": "2019-05-13T23:10:14.000Z",
+                  "name": "placeat",
+                  "deadline": "2023-05-23T13:38:36.000Z",
                   "position": 1,
                   "is_done": false
                 },
@@ -289,11 +307,12 @@
     + Headers
 
             Accept: application/json
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo4LCJleHAiOjE1NTg3MDUxMTZ9.aoC08Hw8U0lxXKeLbH4eDJe3ktHoi38oiM_Ff-gOw88
             Content-Type: application/x-www-form-urlencoded
 
     + Body
 
-            task[name]=consequatur&task[deadline]=2019-05-14+02%3A10%3A14+%2B0300&task[project_id]=7
+            task[name]=adipisci&task[deadline]=2028-05-23+13%3A38%3A36+UTC&task[project_id]=7
 
 + Response 200
 
@@ -308,8 +327,8 @@
                 "id": "4",
                 "type": "task",
                 "attributes": {
-                  "name": "consequatur",
-                  "deadline": "2019-05-13T23:10:14.000Z",
+                  "name": "adipisci",
+                  "deadline": "2028-05-23T13:38:36.000Z",
                   "position": 1,
                   "is_done": false
                 },
@@ -334,13 +353,20 @@
     + Headers
 
             Accept: application/json
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo5LCJleHAiOjE1NTg3MDUxMTZ9.0j1-k5Ixo3y6UKz34FK-92iH8_vqD25aB1xKttdXGgM
             Content-Type: application/x-www-form-urlencoded
 
 + Response 200
 
     + Headers
 
-            Content-Type: application/json
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "deleted": true
+            }
 
 # Group Users
 
@@ -361,7 +387,7 @@
 
     + Body
 
-            username=lavada.thompson&password=Qt2wM6Uu&password_confirmation=Qt2wM6Uu
+            username=madison&password=password&password_confirmation=password
 
 + Response 201
 
@@ -373,8 +399,8 @@
 
             {
               "id": 10,
-              "username": "lavada.thompson",
-              "password_digest": "$2a$04$bd0bf7u/EIwuFRYbE.ManuaYqx.cRuKu5aR..ayyjI7sgLj./LGTq",
-              "created_at": "2019-05-06T23:10:14.980Z",
-              "updated_at": "2019-05-06T23:10:14.980Z"
+              "username": "madison",
+              "password_digest": "$2a$04$19Aj5FAy8Pp/NQZlc5LxNO6qTpH7ilTBrcVV1JBMrw9QtQlkSz1Sq",
+              "created_at": "2019-05-23T13:38:36.578Z",
+              "updated_at": "2019-05-23T13:38:36.578Z"
             }
