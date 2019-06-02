@@ -12,7 +12,7 @@ class Api::V1::TasksController < ApplicationController
   end
 
   def update
-    if Tasks::ManageUpdateActionService.new(@task, task_params).call
+    if Tasks::ManageUpdateActionService.call(@task, task_params)
       render json: TaskSerializer.new(@task).serialized_json, status: :ok
     else
       render json: @task.errors, status: :unprocessable_entity
@@ -35,6 +35,10 @@ class Api::V1::TasksController < ApplicationController
 
   def load_and_authorize_task
     @task = Task.find_by(id: params[:id])
-    authorize @task
+    if @task
+      authorize @task
+    else
+      render json: { task: false }, status: :unprocessable_entity
+    end
   end
 end

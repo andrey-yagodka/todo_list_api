@@ -8,11 +8,6 @@ jobs:
     working_directory: ~/repo
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
-        environment:
-          PG_HOST: localhost
-          PG_USER: ubuntu
-          RAILS_ENV: test
-          RACK_ENV: test
       - image: postgres:9.4
         environment:
           POSTGRES_USER: ruby_psql

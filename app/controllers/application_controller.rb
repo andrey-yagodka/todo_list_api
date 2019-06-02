@@ -5,7 +5,7 @@ class ApplicationController < ActionController::API
   include ExceptionsHandler
 
   def current_user
-    header = request.headers[AUTHORIZATION_HEADER]
-    @current_user ||= Users::GetCurrentUserService.new(header).call if header
+    token = request.headers[AUTHORIZATION_HEADER]
+    @current_user ||= Users::GetCurrentUserService.call(token)
   end
 end

@@ -35,6 +35,10 @@ class Api::V1::ProjectsController < ApplicationController
 
   def load_and_authorize_project
     @project = Project.find_by(id: params[:id])
-    authorize @project
+    if @project
+      authorize @project
+    else
+      render json: { project: false }, status: :unprocessable_entity
+    end
   end
 end

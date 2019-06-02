@@ -4,13 +4,8 @@ class Tasks::ManageUpdateActionService
     down: 'down'
   }.freeze
 
-  def initialize(task, params)
-    @task = task
-    @params = params
-  end
-
-  def call
-    @params[:position] ? update_position(@params[:position]) : @task.update(@params)
+  def self.call(task, params)
+    params[:position] ? update_position(params[:position]) : task.update(params)
   end
 
   private
